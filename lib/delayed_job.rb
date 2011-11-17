@@ -4,7 +4,7 @@ require File.dirname(__FILE__) + '/delayed/message_sending'
 require File.dirname(__FILE__) + '/delayed/performable_method'
 
 # PerformableMailer is compatible with ActionMailer 3 (and possibly 3.1)
-if defined?(ActionMailer) 
+if defined?(ActionMailer)
   require 'action_mailer/version'
   require File.dirname(__FILE__) + '/delayed/performable_mailer' if 3 == ActionMailer::VERSION::MAJOR
 end
@@ -17,7 +17,6 @@ require File.dirname(__FILE__) + '/delayed/backend/base'
 require File.dirname(__FILE__) + '/delayed/worker'
 require File.dirname(__FILE__) + '/delayed/deserialization_error'
 require File.dirname(__FILE__) + '/delayed/railtie' if defined?(Rails::Railtie)
-require File.dirname(__FILE__) + '/delayed/serialization/active_record' if defined?(ActiveRecord)
 
 Object.send(:include, Delayed::MessageSending)
 Module.send(:include, Delayed::MessageSending::ClassMethods)
